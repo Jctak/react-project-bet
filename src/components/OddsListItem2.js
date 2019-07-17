@@ -1,10 +1,11 @@
 import React from "react";
 
-import "../css/OddsListItem2";
+import MarketList from "./MarketList";
+
+import "../css/oddsListItem2.css";
 
 const OddsListItem2 = props => {
     const { gameData } = props;
-    console.log("list item 2's page", gameData);
     return (
         <>
             <div className="odds-container">
@@ -30,14 +31,7 @@ const OddsListItem2 = props => {
                         </div>
                     </div>
                 </div>
-                <div className="allBets-div">
-                    <div className="rLine-a-div" />
-                    <div className="rLine-h-div" />
-                    <div className="mLine-a-div" />
-                    <div className="mLine-h-div" />
-                    <div className="total-o-div" />
-                    <div className="total-u-div" />
-                </div>
+                <MarketList markets={gameData.markets} />
             </div>
         </>
     );
