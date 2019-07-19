@@ -1,47 +1,67 @@
 import React from "react";
+import styled from "styled-components";
 
-import "../css/oddsListItem2.css";
+import {BetML, BetTotal, BetRL} from "./Bet";
+
+import "../css/marketList.css";
+
+const StyledMarket = styled.div`
+    
+`;
 
 const MarketList = props => {
-    const { markets } = props;
-    return (
-        <div>
-            <div className="allBets-div">
-                <div className="rLine-a-div">
-                    {markets[2].books[0].outcomes[1].spread}{" "}
-                    {markets[2].books[0].outcomes[1].odds}
-                </div>
-                <div className="rLine-h-div">
-                    {markets[2].books[0].outcomes[0].spread}{" "}
-                    {markets[2].books[0].outcomes[0].odds}
-                </div>
-                <div className="mLine-a-div">
-                    {markets[0].books[0].outcomes[1].odds}
-                </div>
-                <div className="mLine-h-div">
-                    {markets[0].books[0].outcomes[0].odds}
-                </div>
-                <div className="total-o-div">
-                    {markets[1].books[0].outcomes[0].total}{" "}
-                    {markets[1].books[0].outcomes[0].odds}
-                </div>
-                <div className="total-u-div">
-                    {markets[1].books[0].outcomes[1].total}{" "}
-                    {markets[1].books[0].outcomes[1].odds}
-                </div>
-            </div>
-            {/* {console.log(
-                markets[2].books[0].outcomes[1].spread,
-                markets[2].books[0].outcomes[1].odds,
-                markets[2].books[0].outcomes[0].spread,
-                markets[2].books[0].outcomes[0].odds,
-                markets[0].books[0].outcomes[1].odds,
-                markets[0].books[0].outcomes[0],
-                markets[1].books[0].outcomes[0],
-                markets[1].books[0].outcomes[1]
-            )} */}
-        </div>
-    );
-};
+    const { betType, selectedTotal } = props;
+    const books = betType.books[0];
+    const outcomes = books.outcomes;
+    const { eHandler } = props;
 
+    return (
+        <>
+        <StyledMarket>
+            <>
+                {betType.name === "2way" && books.id === "sr:book:6" ? (
+                <>
+                    {Object.values(outcomes).map((mlBet, id) => 
+                        <div className="ml-bet-here" key={`ml-${mlBet}-${id}`} onClick={() => eHandler(mlBet)}>    
+                            {Object.entries(mlBet).map(([key, value]) => 
+                                <BetML moneyL={[key, value]} key={`${key}-${value}`} wageSelected={selectedTotal}/>
+                            )}
+                        </div>
+                    )}
+                </>
+                ) : betType.name === "total" && books.id === "sr:book:6" ? (
+                    <>
+                        {Object.values(outcomes).map((total, id) => 
+                        <div key={`${total}-${id}`} className="total-div" onClick={() => eHandler(total)}>
+                            {Object.entries(total).map(([key, value]) => 
+                                <div key={`${key}-${value}-${id}`}>
+                                    <BetTotal totals={[key, value]} wageSelected={selectedTotal}/>
+                                </div>
+                            )}
+                        </div>
+                    )}
+                    </>
+                ) : betType.name === "run_line" && books.id === "sr:book:6" ? (
+                    <div className="rl-div">
+                        {Object.values(outcomes).map((rlBet, id) => 
+                        <div key={id} className="" onClick={() => eHandler(rlBet)}>
+                            {Object.entries(rlBet).map(([key, value]) => 
+                                <div key={`${key}-${value}`} className="">
+                                    {console.log()}
+                                    <BetRL runL={[key, value]}  wageSelected={selectedTotal}/>
+                                </div>
+                            )}
+                        </div>
+                    )}
+                    </div>
+                ) : (
+                    <>
+                    </>
+                )}
+            </>
+        </StyledMarket>
+        </>
+    );
+    
+};
 export default MarketList;

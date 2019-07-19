@@ -1,0 +1,51 @@
+.odds-container {
+    display: grid;
+    grid-template-columns: 10% 30% 20% 20% 20%;
+    grid-template-rows: 50px 50px;
+    grid-template-areas:
+        "date awayTeam rlA mlA totalO"
+        "date homeTeam rlH mlH totalU";
+    border: 1px solid black;
+}
+
+.gametime-div {
+    grid-area: date;
+}
+
+.awayTeam-div {
+}
+
+.awayTeamName-div {
+    grid-area: awayTeam;
+}
+
+.homeTeamName-div {
+    grid-area: homeTeam;
+}
+
+.homeTeamPitcher-div {
+}
+
+.rLine-a-div {
+    grid-area: rlA;
+}
+
+.rLine-h-div {
+    grid-area: rlH;
+}
+
+.mLine-a-div {
+    grid-area: mlA;
+}
+
+.mLine-h-div {
+    grid-area: mlH;
+}
+
+.total-o-div {
+    grid-area: totalO;
+}
+
+.total-u-div {
+    grid-area: totalU;
+}
