@@ -1,58 +1,123 @@
 .odds-container {
     display: grid;
-    grid-template-columns: 200px 200px;
+    grid-template-columns: 200px 300px;
     grid-template-rows: 50px 50px;
     grid-template-areas:
-        "a bets bets bets"
-        "a bets bets bets";
-    margin: 0 10px;
+        "teams bets"
+        "teams bets";
     border: 1px solid black;
+    font-family: "Crimson Text", serif;
 }
 
 .teamNames {
-    grid-area: a;
+    border-right: 1px solid black;
+    grid-area: teams;
     display: grid;
     grid-template-areas:
         "away"
         "home";
+    padding-left: 10px;
 }
 
 .awayTeamName {
+    border-bottom: 1px solid black;
     grid-area: away;
+    display: flex;
+    align-items: center;
 }
 
 .homeTeamName {
     grid-area: home;
+    display: flex;
+    align-items: center;
 }
 
 .betTypes {
     grid-area: bets;
     display: grid;
+    grid-template-columns: 100px 80px 100px;
     grid-template-areas:
         "rlAway mlAway totalO"
         "rlHome mlHome totalU";
 }
 
+.rl-0 {
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    cursor: pointer;
+    grid-area: rlAway;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rl-0:hover {
+    background-color: #e9e5dd;
+}
+
+.rl-1 {
+    border-right: 1px solid black;
+    cursor: pointer;
+    grid-area: rlHome;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rl-1:hover {
+    background-color: #e9e5dd;
+}
+
 .ml-0 {
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    cursor: pointer;
     grid-area: mlAway;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ml-0:hover {
+    background-color: #e9e5dd;
 }
 
 .ml-1 {
+    border-right: 1px solid black;
+    cursor: pointer;
     grid-area: mlHome;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ml-1:hover {
+    background-color: #e9e5dd;
 }
 
 .total-0 {
+    border-bottom: 1px solid black;
+    cursor: pointer;
     grid-area: totalO;
+    display: flex;
+    justify-content: center;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+.total-0:hover {
+    background-color: #e9e5dd;
 }
 
 .total-1 {
     grid-area: totalU;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    flex-direction: row-reverse;
+    align-items: center;
 }
 
-.rl-0 {
-    grid-area: rlAway;
-}
-
-.rl-1 {
-    grid-area: rlHome;
+.total-1:hover {
+    background-color: #e9e5dd;
 }

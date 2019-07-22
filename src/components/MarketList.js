@@ -2,7 +2,7 @@ import React from "react";
 
 import { BetML, BetTotal, BetRL } from "./Bet";
 
-import "../css/marketList.css";
+// import "../css/marketList.css";
 
 const MarketList = props => {
     const { betType, selectedTotal } = props;

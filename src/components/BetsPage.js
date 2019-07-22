@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import Wrapper from "./sharedComponents/Wrapper";
 import OddsList from "./OddsList";
 
+import "../css/betsPage.css";
 class BetsPage extends Component {
     constructor(props) {
         super(props);
