@@ -1,0 +1,58 @@
+.odds-container {
+    display: grid;
+    grid-template-columns: 200px 200px;
+    grid-template-rows: 50px 50px;
+    grid-template-areas:
+        "a bets bets bets"
+        "a bets bets bets";
+    margin: 0 10px;
+    border: 1px solid black;
+}
+
+.teamNames {
+    grid-area: a;
+    display: grid;
+    grid-template-areas:
+        "away"
+        "home";
+}
+
+.awayTeamName {
+    grid-area: away;
+}
+
+.homeTeamName {
+    grid-area: home;
+}
+
+.betTypes {
+    grid-area: bets;
+    display: grid;
+    grid-template-areas:
+        "rlAway mlAway totalO"
+        "rlHome mlHome totalU";
+}
+
+.ml-0 {
+    grid-area: mlAway;
+}
+
+.ml-1 {
+    grid-area: mlHome;
+}
+
+.total-0 {
+    grid-area: totalO;
+}
+
+.total-1 {
+    grid-area: totalU;
+}
+
+.rl-0 {
+    grid-area: rlAway;
+}
+
+.rl-1 {
+    grid-area: rlHome;
+}

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-//make css class for nav and import
+import "../../css/nav.css";
 
 class Nav extends Component {
     constructor(props) {
@@ -15,7 +15,7 @@ class Nav extends Component {
         const { routes } = this.props;
         return (
             <nav>
-                <ul>
+                <ul className="nav-ul">
                     {routes.map(route => (
                         <li key={`link-${route.linkName}`}>
                             <Link to={route.linkRoute}>{route.linkName}</Link>

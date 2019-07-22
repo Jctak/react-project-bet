@@ -1,23 +1,18 @@
 import React, { Component } from "react";
-import styled from "styled-components";
+import "../css/oddsList.css";
 
 import OddsListItem from "./OddsListItem";
 
-const OddsStyled = styled.div`
-    display: flex;
-    flex-direction: column;
-`; 
-
 class OddsList extends Component {
     state = {
-        gamesArray: [],         
+        gamesArray: []
     };
 
     async componentDidMount() {
         const gameData = await this.loadData();
         const gamesArray = this.extractData(gameData);
         this.setState({
-            gamesArray,
+            gamesArray
         });
     }
 
@@ -36,14 +31,18 @@ class OddsList extends Component {
     render() {
         const { gamesArray, totalPicked } = this.state;
         const { clickHandler } = this.props;
-        
+
         return (
             <>
-                <OddsStyled>
                 {gamesArray.map(game => {
-                    return <OddsListItem gameData={game} key={game.id} eventHandler={clickHandler} />;
+                    return (
+                        <OddsListItem
+                            gameData={game}
+                            key={game.id}
+                            eventHandler={clickHandler}
+                        />
+                    );
                 })}
-                </OddsStyled>
             </>
         );
     }
